@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Menu</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>List of Item of restaurant: {{restaurant.name}}</h1>
+	{% for item in items %}
+    <div>{{item.name}}</div>
+    <div><a href="#">Edit</a></div>
+    <div><a href="#">Delete</a></div>
+  	{% endfor %}
+</body>
+</html>
