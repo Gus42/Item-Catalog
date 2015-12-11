@@ -1,2 +1,2 @@
 # Item-Catalog
-Udacity P2, Full Stack - First time with the framework Flask
+Udacity P3, Full Stack - First time with the framework Flask
