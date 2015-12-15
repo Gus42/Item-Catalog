@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Edit Restaurant</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-	<h1>Edit this restaurant</h1>
-	<form action="#" method='post'>
-		<p>Actual name: {{restaurant.name}}</p>
-		<p>Name:</p>
-		<input type='text' size='30' name='name' palceholder='{{restaurant.name}}'>
+	<h1> Edit Restaurant </h1>
+	<form action="{{ url_for('editRestaurants',restaurant_id = restaurant_id)}}" method = 'post'>
+		<dl>
+			<dt>Name:</dt>
+				<dd><input type ='text' size='30' name='name' placeholder = '{{restaurant.name }}'></dd>
+		</dl>
 		<input type='submit' value='Edit'>
-		<a href="">Cancel</a>
+		<a href = '{{url_for('showRestaurants')}}'> Cancel </a>
 	</form>
 </body>
 </html>

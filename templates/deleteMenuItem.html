@@ -5,12 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-	<h1>Delete Item</h1>
-	<p>The item: {{item.name}} will be deleted. Are you sure?</p>
-	<form action="#" method='post'>
-		<input type='text' size='30' name='name' palceholder='{{item.name}}'>
-		<input type='submit' value='Delete'>
-		<a href="">Cancel</a>
+	<h1> Are you sure you want to delete {{item.name}}? </h1>
+	<form action="{{ url_for('deleteMenuItem',restaurant_id = item.restaurant_id, menu_id=item.id)}}" method = 'post'>
+		<input type='submit', value = 'Delete'>
 	</form>
+	<a href = '{{url_for('showMenu', restaurant_id = item.restaurant_id)}}'> Cancel </a>
 </body>
 </html>
