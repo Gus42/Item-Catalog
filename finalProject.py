@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
-from database_setup import Base, Restaurant, MenuItem, User
+from database_setup import Base, User, Category, Item
 from flask import session as login_session
 import random
 import string
@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
 
-# Connect to the database restaurant.db
+# Connect to the database catalog.db
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
@@ -248,10 +248,10 @@ def gdisconnect():
 # --------------------------------------------------------------------------------------------------------
 
 
-@app.route('/restaurants/JSON')
-def restaurantJSON():
-    restaurants = session.query(Restaurant).all()
-    return jsonify(Restaurants=[i.serialize for i in restaurants])
+@app.route('/categories/JSON')
+def categoriesJSON():
+    categories = session.query(Category).all()
+    return jsonify(Categories=[i.serialize for i in categories])
 
 @app.route('/restaurant/<int:restaurant_id>/menu/JSON')
 def restaurantMenuJSON(restaurant_id):
@@ -266,13 +266,13 @@ def menuItemJSON(restaurant_id, menu_id):
     menuItem = session.query(MenuItem).filter_by(id=menu_id).one()
     return jsonify(MenuItem=menuItem.serialize)
 
-# Show all my restaurants
+# Show the catalog
 @app.route("/")
-@app.route("/restaurants")
-def showRestaurants():
-    restaurants = session.query(Restaurant).all()
-    print restaurants
-    return render_template('restaurants.html', restaurants=restaurants)
+@app.route("/categories")
+def showCategories():
+    categories = session.query(Category).all()
+    print categories
+    return render_template('catalog.html', categories=categories)
 
 @app.route("/restaurant/new",
            methods=['GET', 'POST'])
