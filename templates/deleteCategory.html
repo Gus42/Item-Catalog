@@ -3,13 +3,13 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-	<title>Delete restaurant</title>
+	<title>Delete Category</title>
 </head>
 <body>
-	<p>The restaurant: {{restaurant.name}} will be deleted. Are you sure?</p>
-	<form action="{{ url_for('deleteRestaurants',restaurant_id = restaurant_id)}}" method = 'post'>
+	<p>The Category: {{category.name}} will be deleted. Are you sure?</p>
+	<form action="{{ url_for('deleteCategory',category_id = category_id)}}" method = 'post'>
 		<input type='submit', value = 'Delete'>
 	</form>
-	<a href = '{{url_for('showRestaurants')}}'> Cancel </a>
+	<a href = '{{url_for('showCatalog')}}'> Cancel </a>
 </body>
 </html>

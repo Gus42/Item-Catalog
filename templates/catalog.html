@@ -6,9 +6,9 @@
 <body>
 	<div class = 'pane'>
 		<div class = 'header'>
-			<h1>List of restaurants</h1>
+			<h1>Catalog</h1>
 		</div>
-		<a href = '{{url_for('newRestaurants') }}'>Create New Restaurant</a>
+		<a href = '{{url_for('newCategory') }}'>Create New Category</a>
 		<div class = 'flash'>
 			{% with messages = get_flashed_messages() %}
       		{% if messages %}
@@ -20,13 +20,15 @@
         	{% endif %}
     		{% endwith %}
 		</div>
-		{% for i in restaurants %}
-    	<div class = 'nameAndPrice'>
-			<a href='{{url_for('showMenu', restaurant_id = i.id)}}' class = 'name'><p>{{i.name}}</p></a>
-		</div>
-		<div class = "editdeletepane">
-			<a href='{{url_for('editRestaurants', restaurant_id = i.id)}}'>Edit</a>
-			<a href='{{url_for('deleteRestaurants', restaurant_id = i.id)}}'>Delete</a>
+		{% for i in categories %}
+		<div>
+	    	<div class = 'nameAndPrice'>
+				<a href='{{url_for('showItems', category_id = i.id)}}' class = 'name'><p>{{i.name}}</p></a>
+			</div>
+			<div class = "editdeletepane">
+				<a href='{{url_for('editCategory', category_id = i.id)}}'>Edit</a>
+				<a href='{{url_for('deleteCategory', category_id = i.id)}}'>Delete</a>
+			</div>
 		</div>
 		{% endfor %}
 	</div>

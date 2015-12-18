@@ -5,14 +5,14 @@
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-	<h1> Edit Restaurant </h1>
-	<form action="{{ url_for('editRestaurants',restaurant_id = restaurant_id)}}" method = 'post'>
+	<h1> Edit Category </h1>
+	<form action="{{ url_for('editCategory',category_id = category_id)}}" method = 'post'>
 		<dl>
 			<dt>Name:</dt>
-				<dd><input type ='text' size='30' name='name' placeholder = '{{restaurant.name }}'></dd>
+				<dd><input type ='text' size='30' name='name' placeholder = '{{category.name }}'></dd>
 		</dl>
 		<input type='submit' value='Edit'>
-		<a href = '{{url_for('showRestaurants')}}'> Cancel </a>
+		<a href = '{{url_for('showCatalog')}}'> Cancel </a>
 	</form>
 </body>
 </html>
