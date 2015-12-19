@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles2.css') }}">
 </head>
 <body>
 	<div class = 'pane'>
@@ -22,9 +22,6 @@
 		{% for i in items %}
     	<div class = 'nameAndPrice'>
 			<span class = 'name'><p>{{i.name}}</p></span>
-			<span class = 'price'>
-				<p>{{i.price}} </p>
-			</span>
 		</div>
 		<div class = 'description'>
 			<p>{{i.description}}</p>

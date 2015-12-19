@@ -1,11 +1,6 @@
 {% extends "main.html" %}
 {% block content %}
-	<div class="row top-menu">
-		<div class="col-md-10"></div>
-		<div class="col-md-2 text-right">
-			<a href="{{url_for('showLogin')}}">Click Here to Log in </a>
-		</div>
-	</div>
+{% include "header.html" %}
 	<div class="row divider blue">
 		<div class="col-md-12"></div>
 	</div>
@@ -27,10 +22,7 @@
         </ul>
         {% endif %}
     {% endwith %}
-
-</div>
-
-
+	</div>
 
 	<div class="row padding-top padding-bottom">
 		<div class="col-md-1"></div>
@@ -39,8 +31,8 @@
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-	{% for category in catalog %}
-		<a href = "{{url_for('showMenu', category_id = category.id)}}">
+	{% for category in categories %}
+		<a href = "{{url_for('showItems', category_id = category.id)}}">
 			<div class="row">
 				<div class="col-md-1"></div>
 					<div class="col-md-10 restaurant-list">
