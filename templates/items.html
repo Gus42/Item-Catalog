@@ -7,7 +7,7 @@
 		<div class = 'header'>
 			<h1>{{ category.name }}</h1>
 		</div>
-		<a href = '{{url_for('newMenuItem', category_id = category.id) }}'>Create New Item</a>
+		<a href = '{{url_for('newItem', category_id = category.id) }}'>Create New Item</a>
 		<div class = 'flash'>
 			{% with messages = get_flashed_messages() %}
       		{% if messages %}
@@ -30,8 +30,8 @@
 			<p>{{i.description}}</p>
 		</div>
 		<div class = "editdeletepane">
-			<a href='{{url_for('editMenuItem',category_id = category.id, menu_id=i.id)}}' >Edit</a>
-			<a href='{{url_for('deleteMenuItem', category_id = category.id, menu_id=i.id)}}'>Delete</a>
+			<a href='{{url_for('editItem',category_id = category.id, item_id=i.id)}}' >Edit</a>
+			<a href='{{url_for('deleteItem', category_id = category.id, item_id=i.id)}}'>Delete</a>
 		</div>
 		{% endfor %}
 	</div>

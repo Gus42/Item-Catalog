@@ -334,7 +334,7 @@ def showItems(category_id):
     and it shows them using the template: items.html for an authorized user
     and publicCategory.html for a non authorized user.
     '''
-    category = session.query(category).filter_by(id=category_id).one()
+    category = session.query(Category).filter_by(id=category_id).one()
     creator = getUserInfo(category.user_id)
     items = session.query(Item).filter_by(category_id=category_id)
     if 'username' not in login_session or creator.id != login_session['user_id']:

@@ -4,8 +4,8 @@
 	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-	<h1> Edit Menu Item </h1>
-	<form action="{{ url_for('editMenuItem',category_id = category_id, menu_id=item.id)}}" method = 'post'>
+	<h1> Edit Item </h1>
+	<form action="{{ url_for('editItem',category_id = category_id, item_id=item.id)}}" method = 'post'>
 		<dl>
 			<dt>Name:</dt>
 				<dd><input type ='text' size='30' name='name' placeholder = '{{item.name }}'></dd>
@@ -13,7 +13,7 @@
 				<dd><textarea name = 'description' rows='5' cols='40' placeholder = '{{item.description }}'></textarea></dd>
 		</dl>
 		<input type='submit' value='Edit'>
-		<a href = '{{url_for('showMenu', category_id = category_id)}}'> Cancel </a>
+		<a href = '{{url_for('showItems', category_id = category_id)}}'> Cancel </a>
 	</form>
 </body>
 </html>
