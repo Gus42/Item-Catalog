@@ -5,11 +5,14 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+p {
 	margin: 0;
 }
 
-/*USEFULL*/
+h2 {
+	margin-bottom: 10px;
+}
 
 /*MAIN*/
 .container {
@@ -28,3 +31,14 @@ h3 {
 }
 
 /*ALL PAGES*/
+.new {
+	line-height: 30px;
+}
+
+.name {
+	font-size: 18px;
+}
+
+.avatar {
+	max-height: 33px;
+}

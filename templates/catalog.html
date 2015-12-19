@@ -3,9 +3,13 @@
 {% include "header.html" %}
 	<div class="row">
 		<div class="col-md-1"></div>
-		<div class="col-md-11 padding-none">
+		<div class="col-md-6 padding-none">
 			<h2>Categories</h2>
 		</div>
+		<div class="col-md-4 text-right new">
+			<a href="{{url_for('newCategory')}}">Add a new category</a>
+		</div>
+		<div class="col-md-1"></div>
 	</div>
 
 	<div class = 'flash'>

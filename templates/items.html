@@ -6,7 +6,7 @@
 		<div class="col-md-6 padding-none">
 			<h2>{{category.name}}</h2>
 		</div>
-		<div class="col-md-4 text-right">
+		<div class="col-md-4 text-right new">
 			<a href="{{url_for('newItem', category_id = category.id)}}">Add a new item to this category</a>
 		</div>
 		<div class="col-md-1"></div>
@@ -27,10 +27,10 @@
 	{% for i in items %}
 		<div class="row">
 			<div class="col-md-1"></div>
-	    	<div class="col-md-2">
-				<span class = 'name'><p>{{i.name}}</p></span>
+	    	<div class="col-md-3">
+				<span class="name"><p>{{i.name}}</p></span>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<p>{{i.description}}</p>
 			</div>
 			<div class="col-md-1 text-right">
