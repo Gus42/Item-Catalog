@@ -3,10 +3,13 @@ body {
 	margin: 0 auto;
 }
 
-/*USEFULL*/
-.text-right {
-	text-align: right;
+h1,
+h2,
+h3 {
+	margin: 0;
 }
+
+/*USEFULL*/
 
 /*MAIN*/
 .container {
@@ -21,6 +24,7 @@ body {
 	color: orange;
 	border: 1px solid skyblue;
 	padding: 15px;
+	margin-bottom: 15px;
 }
 
 /*ALL PAGES*/

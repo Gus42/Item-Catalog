@@ -1,36 +1,45 @@
-<html>
-<head>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles2.css') }}">
-</head>
-<body>
-	<div class = 'pane'>
-		<div class = 'header'>
-			<h1>{{ category.name }}</h1>
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-6 padding-none">
+			<h2>{{category.name}}</h2>
 		</div>
-		<a href = '{{url_for('newItem', category_id = category.id) }}'>Create New Item</a>
-		<div class = 'flash'>
-			{% with messages = get_flashed_messages() %}
-      		{% if messages %}
-	       	<ul>
-        		{% for message in messages %}
-            	<li> <strong> {{ message }} </strong> </li>
-        		{% endfor %}
-        	</ul>
-        	{% endif %}
-    		{% endwith %}
+		<div class="col-md-4 text-right">
+			<a href="{{url_for('newItem', category_id = category.id)}}">Add a new item to this category</a>
 		</div>
-		{% for i in items %}
-    	<div class = 'nameAndPrice'>
-			<span class = 'name'><p>{{i.name}}</p></span>
-		</div>
-		<div class = 'description'>
-			<p>{{i.description}}</p>
-		</div>
-		<div class = "editdeletepane">
-			<a href='{{url_for('editItem',category_id = category.id, item_id=i.id)}}' >Edit</a>
-			<a href='{{url_for('deleteItem', category_id = category.id, item_id=i.id)}}'>Delete</a>
-		</div>
-		{% endfor %}
+		<div class="col-md-1"></div>
 	</div>
-</body>
-</html>
+
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+      	{% if messages %}
+        <ul>
+        	{% for message in messages %}
+            	<li> <strong> {{ message }} </strong> </li>
+        	{% endfor %}
+        </ul>
+        {% endif %}
+    	{% endwith %}
+	</div>
+
+	{% for i in items %}
+		<div class="row">
+			<div class="col-md-1"></div>
+	    	<div class="col-md-2">
+				<span class = 'name'><p>{{i.name}}</p></span>
+			</div>
+			<div class="col-md-6">
+				<p>{{i.description}}</p>
+			</div>
+			<div class="col-md-1 text-right">
+				<a href="{{url_for('editItem', category_id = category.id, item_id=i.id)}}">Edit</a>
+			</div>
+			<div class="col-md-1 text-right">
+				<a href="{{url_for('deleteItem', category_id = category.id, item_id=i.id)}}">Delete</a>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
+	{% endfor %}
+{% endblock %}

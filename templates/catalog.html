@@ -1,93 +1,40 @@
 {% extends "main.html" %}
 {% block content %}
 {% include "header.html" %}
-	<div class="row top-menu">
-		<div class="col-md-10"></div>
-		<div class="col-md-2 text-right"></div>
-	</div>
-	<div class="row divider blue">
-		<div class="col-md-12"></div>
-	</div>
-	<div class="row banner main">
+	<div class="row">
 		<div class="col-md-1"></div>
 		<div class="col-md-11 padding-none">
-			<h1>Categories</h1>
+			<h2>Categories</h2>
 		</div>
 	</div>
 
-<div class = 'flash'>
-		      {% with messages = get_flashed_messages() %}
-      {% if messages %}
-
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+      	{% if messages %}
         <ul>
-        {% for message in messages %}
-            <li> <strong> {{ message }} </strong> </li>
-        {% endfor %}
+        	{% for message in messages %}
+            	<li> <strong> {{ message }} </strong> </li>
+        	{% endfor %}
         </ul>
         {% endif %}
-    {% endwith %}
-
-</div>
-
-	<div class="row padding-top padding-bottom">
-		<div class="col-md-1"></div>
-		<div class="col-md-10 padding-none">
-			<a href="{{url_for('newCategory')}}">
-				<button class="btn btn-default" id="new-restaurant">
-					<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span> Add Category
-				</button>
-			</a>
-		</div>
-		<div class="col-md-1"></div>
+    	{% endwith %}
 	</div>
-	{% for i in categories %}
-		<a href = "{{url_for('showItems', category_id = i.id)}}">
-			<div class="row">
-				<div class="col-md-1"></div>
-					<div class="col-md-10 restaurant-list">
-						<h3>{{i.name}}</h3>
-					</div>
-				<div class="col-md-1"></div>
+
+	{% for category in categories %}
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-8">
+				<a href = "{{url_for('showItems', category_id = category.id)}}">
+					<h3>{{category.name}}</h3>
+				</a>
 			</div>
-		</a>
+			<div class="col-md-1 text-right">
+				<a href="{{url_for('editCategory', category_id = category.id)}}">Edit</a>
+			</div>
+			<div class="col-md-1 text-right">
+				<a href="{{url_for('deleteCategory', category_id = category.id)}}">Delete</a>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
 	{% endfor %}
 {% endblock %}
-
-<!-- <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-	<div class = 'pane'>
-		<div class = 'header'>
-			<h1>Catalog</h1>
-		</div>
-		<a href = '{{url_for('newCategory') }}'>Create New Category</a>
-		<div class = 'flash'>
-			{% with messages = get_flashed_messages() %}
-      		{% if messages %}
-	       	<ul>
-        		{% for message in messages %}
-            	<li> <strong> {{ message }} </strong> </li>
-        		{% endfor %}
-        	</ul>
-        	{% endif %}
-    		{% endwith %}
-		</div>
-		{% for i in categories %}
-		<div>
-	    	<div class = 'nameAndPrice'>
-				<a href='{{url_for('showItems', category_id = i.id)}}' class = 'name'><p>{{i.name}}</p></a>
-			</div>
-			<div class = "editdeletepane">
-				<a href='{{url_for('editCategory', category_id = i.id)}}'>Edit</a>
-				<a href='{{url_for('deleteCategory', category_id = i.id)}}'>Delete</a>
-			</div>
-		</div>
-		{% endfor %}
-	</div>
-</body>
-</html>
-
--->
