@@ -13,7 +13,7 @@ I wrote almost all the code. I copied, with some changes, the functions of login
 - Clone the Item-Catalog repository inside the fullstack/vagrant/catalog directory
 - Use Git Bash and go to the subdirectory /vagrant
 - Run commands: vagrant up, vagrant ssh
-- Go to subdirectory vagrant/vatalog
+- Go to subdirectory vagrant/catalog
 - Run command: python finalProject.py
 - Open your browser and go to http://localhost:5000
 
